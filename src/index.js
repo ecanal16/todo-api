@@ -6,6 +6,8 @@ import config from './utils/config'
 import logger from './utils/logger'
 import errors from './utils/errors'
 
+import router from './routes'
+
 const app = express()
 
 app.use(logger.middleware)
@@ -16,10 +18,7 @@ app.use(
   }),
 )
 
-app.get('/', (req, res) => {
-  logger.log.success('Calling root')
-  res.send({ msg: 'Hello world' })
-})
+app.use(router)
 
 app.use(errors.notFound)
 app.use(errors.errorHandler)
