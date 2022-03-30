@@ -11,6 +11,7 @@ const envSchema = joi
     NODE_ENV: joi.string().valid('development', 'production').required(),
     PORT: joi.number().positive().required(3000),
     ORIGIN: joi.string().uri().required(),
+    DATABASE_URL: joi.string().uri().required(),
   })
   .unknown()
 
